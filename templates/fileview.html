@@ -1,0 +1,28 @@
+{% extends 'home.html' %}
+{% block addcss %}
+    <link rel="stylesheet" href="{{url_for('static',filename='table.css')}}">
+{% endblock %}
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th>File_id</th>
+                <th>Date</th>
+                <th>view link</th>
+                <th>Download link</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in count %}
+            <tr> 
+                <td>{{i[0]}}</td>
+                <td>{{i[4]}}</td>
+                <td><a href="{{url_for('view_file',fid=i[0])}}">view</a></td>
+                <td><a href="{{url_for('download_file',fid=i[0])}}">download</a></td>
+                <td><a href="{{url_for('fdelete',fid=i[0])}}">delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'home.html' %}
+
+{% block addcss %}
+<style>
+  .about-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  .about-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007bff;
+  }
+
+  .highlight {
+    color: #2980b9;
+    font-weight: bold;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="about-container">
+  <h2>About SPM (Student Personal Manager)</h2>
+  <p>
+    <span class="highlight">Student Personal Manager (SPM)</span> is a lightweight web application designed to help students manage their personal academic tasks with ease.
+    It enables students to create, update, and view their notes, upload important documents, and store everything in one organized place.
+  </p>
+  <p>
+    This application is especially useful for keeping track of study material, to-do items, lecture notes, and project files. All data is securely stored and personalized to each student through user authentication.
+  </p>
+  <p>
+    Key features of SPM include:
+    <ul>
+      <li>Secure login & registration with email verification</li>
+      <li>Note creation, editing, and deletion</li>
+      <li>File upload and download functionality</li>
+      <li>Password reset via email link</li>
+      <li>Beautiful and responsive user interface</li>
+    </ul>
+  </p>
+  <p>
+    Built using <span class="highlight">Python, Flask, MySQL, HTML, CSS, and Bootstrap</span>, SPM aims to bring simplicity and productivity into a student's daily academic routine.
+  </p>
+</div>
+{% endblock %}

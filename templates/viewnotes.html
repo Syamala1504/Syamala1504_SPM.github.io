@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Notes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='addnotes.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style="background-color: #1a1a2e; color: white;">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">SPM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="notesDropdown" role="button" data-toggle="dropdown">
+                        Notes
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="notesDropdown">
+                        <a class="dropdown-item" href="{{ url_for('view_allnotes') }}">View Notes</a>
+                        <a class="dropdown-item" href="{{ url_for('addnotes') }}">Add Note</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Note Content -->
+    <div class="container mt-4">
+        <h2 class="text-center mb-4">View Notes</h2>
+        {% for i in data1 %}
+        <div class="form-group">
+            <label>Title:</label>
+            <input type="text" class="form-control bg-dark text-white" value="{{ i[0] }}" readonly>
+        </div>
+        <div class="form-group">
+            <label>Content:</label>
+            <textarea class="form-control bg-dark text-white" rows="10" readonly>{{ i[1] }}</textarea>
+        </div>
+        {% endfor %}
+
+        <!-- Back to Home Button -->
+        <div class="text-center mt-4">
+            <a href="{{ url_for('dashboard') }}" class="btn btn-outline-light">← Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
